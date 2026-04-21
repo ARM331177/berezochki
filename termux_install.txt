@@ -14,7 +14,7 @@ pkg install git -y
 termux-setup-storage
 cd storage
 cd downloads
-git clone https://github.com/ARM331177/ytdownload.git
-cd ytdownload
+git clone https://github.com/ARM331177/ytdownloadertermux.git
+cd ytdownloadertermux
 pip install yt-dlp
 python ytdownload.py
