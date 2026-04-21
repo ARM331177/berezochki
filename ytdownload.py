@@ -3,6 +3,7 @@ from yt_dlp.utils import DownloadError
 
 FFMPEG_LOCATION = "/data/data/com.termux/files/usr/bin"
 
+
 def format_size(bytes_value):
     """Convert bytes to readable format."""
     if not bytes_value:
@@ -125,11 +126,13 @@ def download_youtube_video(url: str):
             "format": f"{selected_format_id}+bestaudio/best",
             "outtmpl": "%(title)s.%(ext)s",
             "merge_output_format": "mp4",
+            "ffmpeg_location": FFMPEG_LOCATION,
         }
     else:
         ydl_opts = {
             "format": "bestaudio/best",
             "outtmpl": "%(title)s.%(ext)s",
+            "ffmpeg_location": FFMPEG_LOCATION,
             "postprocessors": [
                 {
                     "key": "FFmpegExtractAudio",
