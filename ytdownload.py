@@ -1,8 +1,6 @@
 from yt_dlp import YoutubeDL
 from yt_dlp.utils import DownloadError
 
-FFMPEG_LOCATION = "/data/data/com.termux/files/usr/bin"
-
 
 def format_size(bytes_value):
     """Convert bytes to readable format."""
@@ -75,7 +73,7 @@ def choose_format(video_formats):
     for i, f in enumerate(video_formats, start=1):
         print(
             f"{i:2d}. {f['quality']:10s} | {f['ext']:4s} | "
-            f"размер: {f['filesize_text']}"
+            f"size: {f['filesize_text']}"
         )
 
     while True:
@@ -126,13 +124,11 @@ def download_youtube_video(url: str):
             "format": f"{selected_format_id}+bestaudio/best",
             "outtmpl": "%(title)s.%(ext)s",
             "merge_output_format": "mp4",
-            "ffmpeg_location": FFMPEG_LOCATION,
         }
     else:
         ydl_opts = {
             "format": "bestaudio/best",
             "outtmpl": "%(title)s.%(ext)s",
-            "ffmpeg_location": FFMPEG_LOCATION,
             "postprocessors": [
                 {
                     "key": "FFmpegExtractAudio",
