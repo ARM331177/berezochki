@@ -1,3 +1,5 @@
+!!NEED FFMPEG!!
+
 For Windows: .exe file in Release.
 
 For Termux: 
